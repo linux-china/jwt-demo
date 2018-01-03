@@ -1,0 +1,14 @@
+### request with role required
+GET http://localhost:8080/hello
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYWNraWUiLCJpc3MiOiJtdm5zZWFyY2gifQ.C_q7_FwlzmvzC6L3CqOnUzb6PFs9REZ3RON6_aJTxWw
+
+### health with auth
+GET http://localhost:8080/health
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJqYWNraWUiLCJpc3MiOiJtdm5zZWFyY2gifQ.C_q7_FwlzmvzC6L3CqOnUzb6PFs9REZ3RON6_aJTxWw
+
+### webjars
+GET http://localhost:8080/webjars/bootstrap/3.3.7/css/bootstrap.css
+
+### spring boot health
+GET http://localhost:8081/actuator/health
+
