@@ -16,7 +16,11 @@ JWT（JSON Web Tokens) is very useful for API gateway to authorize the user
 
 * Issuer: issuer, such as domain name, company name or organization name etc.
 * Subject: subject, such as email, user id, user nick, mobile etc
-* Audience: audience, such as XxxPartner, admin, vip etc
+* http header: 
+
+```
+Authorization: Bearer xxx.yyy.zzz
+```
 
 
 ### Attention
