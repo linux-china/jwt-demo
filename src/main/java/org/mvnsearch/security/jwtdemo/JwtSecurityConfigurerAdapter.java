@@ -41,7 +41,13 @@ public class JwtSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .httpBasic().disable()
-                .exceptionHandling().accessDeniedPage("/403");
+                .exceptionHandling()
+                .authenticationEntryPoint((request, response, authException) -> {
+                    response.sendError(403, "Access Denied: please add legal JWT token on Authorization(HTTP header). If you have problem, please contact linux_china");
+                })
+                .accessDeniedHandler((request, response, accessDeniedException) -> {
+                    response.sendError(403, "Access Denied: please check your authorities. If you have problem, please contact linux_china");
+                });
     }
 
 
