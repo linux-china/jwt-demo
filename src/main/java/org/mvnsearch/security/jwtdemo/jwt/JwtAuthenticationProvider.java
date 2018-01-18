@@ -6,6 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,6 +43,7 @@ public class JwtAuthenticationProvider implements AuthenticationProvider {
             jwtAuthentication.setUserDetails(userDetailsService.loadUserByUsername(jwt.getSubject()));
         } catch (JWTVerificationException e) {
             jwtAuthentication.setAuthenticated(false);
+            throw new BadCredentialsException("Your token is illegal.");
         }
         return jwtAuthentication;
     }
