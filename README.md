@@ -24,6 +24,8 @@ Authorization: Bearer xxx.yyy.zzz
 
 ### RSA token generation
 
+Almost we use RSA private key to generate JWT token and use RSA public key to verify token.
+
 ```
 # generate a 2048-bit RSA private key
 $ openssl genrsa -out private_key.pem 2048
