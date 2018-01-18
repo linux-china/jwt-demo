@@ -15,7 +15,7 @@ import java.security.Principal;
 public class DemoController {
 
     @GetMapping("/hello")
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAuthority('SMS') or hasRole('admin')")
     public String hello(Principal userPrincipal) {
         return "hello " + userPrincipal.getName();
     }
