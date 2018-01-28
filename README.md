@@ -49,3 +49,4 @@ $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 * Refresh Tokens: https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
 * Spring security architecture: https://spring.io/guides/topicals/spring-security-architecture/
 * Java Cryptography: http://tutorials.jenkov.com/java-cryptography/index.html
+* Cryptographic Storage Cheat Sheet： https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet
