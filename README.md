@@ -31,13 +31,27 @@ Almost we use RSA private key to generate JWT token and use RSA public key to ve
 $ openssl genrsa -out private_key.pem 2048
 
 # convert private Key to PKCS#8 format (so Java can read it)
-$ openssl pkcs8 -topk8 -inform PEM -outform DER -in private_key.pem \
+$ openssl pkcs12 -topk8 -inform PEM -outform DER -in private_key.pem \
     -out private_key.der -nocrypt
 
 # output public key portion in DER format (so Java can read it)
 $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 
 ```
+
+
+```
+# generate a 2048-bit RSA private key
+$ openssl genrsa -out jwt_private_key.pem 2048
+
+# convert private Key to PKCS#8 format (so Java can read it)
+$ openssl pkcs8 -topk8 -inform PEM -outform DER -in jwt_private_key.pem -out jwt_rsa.key -nocrypt
+
+# output public key portion in DER format (so Java can read it)
+$ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
+
+```
+
 
 ### Attention
 
@@ -50,3 +64,6 @@ $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 * Spring security architecture: https://spring.io/guides/topicals/spring-security-architecture/
 * Java Cryptography: http://tutorials.jenkov.com/java-cryptography/index.html
 * Cryptographic Storage Cheat Sheet： https://www.owasp.org/index.php/Cryptographic_Storage_Cheat_Sheet
+* JSON Web Tokens (JWT) Demystified: https://hackernoon.com/json-web-tokens-jwt-demystified-f7e202249640
+* Validate JWT tokens using JWKS in Java：https://medium.com/trabe/validate-jwt-tokens-using-jwks-in-java-214f7014b5cf
+* Nimbus JOSE + JWT：https://connect2id.com/products/nimbus-jose-jwt
