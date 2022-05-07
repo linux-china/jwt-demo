@@ -6,8 +6,8 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import org.apache.commons.io.IOUtils;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
@@ -21,7 +21,7 @@ public class JwtRSATest {
     private static Algorithm algorithmRSA256Private;
     private static Algorithm algorithmRSA256Public;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() throws Exception {
         byte[] privateKey = IOUtils.toByteArray(JwtRSATest.class.getResourceAsStream("/rsa_keys/private_key.der"));
         byte[] publicKey = IOUtils.toByteArray(JwtRSATest.class.getResourceAsStream("/rsa_keys/public_key.der"));

@@ -7,12 +7,13 @@ import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.LoadingCache;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * JWT test with cache support
@@ -25,9 +26,9 @@ public class JwtTest {
     private static Algorithm algorithmHS;
     private static LoadingCache<String, DecodedJWT> tokenStore;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUp() throws Exception {
-        algorithmHS = Algorithm.HMAC256("secret");
+        algorithmHS = Algorithm.HMAC256("access-secret");
         jwtVerifier = JWT.require(algorithmHS).withIssuer("mvnsearch").build();
         tokenStore = Caffeine.newBuilder()
                 .maximumSize(10_000)
@@ -40,10 +41,11 @@ public class JwtTest {
     @Test
     public void testGenerateToken() throws Exception {
         String token = JWT.create()
-                .withIssuer("mvnsearch")
-                .withSubject("user1")
+                .withSubject("access-key")
                 .withIssuedAt(new Date())
-                .withArrayClaim("authorities", new String[]{"SMS"})
+                .withExpiresAt(new Date(System.currentTimeMillis() + 15000))
+                .withClaim("appName","function1")
+                .withClaim("nonce",true)
                 .sign(algorithmHS);
         System.out.println(token);
     }
@@ -54,7 +56,7 @@ public class JwtTest {
         DecodedJWT jwt = tokenStore.get(token);
         Claim claim = jwt.getClaim("authorities");
         String[] authorities = claim.asArray(String.class);
-        Assert.assertNotNull(authorities);
+        assertNotNull(authorities);
         for (String authority : authorities) {
             System.out.println(authority);
         }
