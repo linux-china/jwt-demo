@@ -1,7 +1,7 @@
 Spring Security with JWT
 ========================
 
-JWT（JSON Web Tokens) is very useful for API gateway to authorize the user
+JWT(JSON Web Tokens) is very useful for API gateway to authorize the user
 
 # Vocabulary
 
@@ -16,7 +16,7 @@ JWT（JSON Web Tokens) is very useful for API gateway to authorize the user
 
 * Issuer: issuer, such as domain name, company name or organization name etc.
 * Subject: subject, such as email, user id, user nick, mobile etc
-* http header: 
+* http header:
 
 ```
 Authorization: Bearer xxx.yyy.zzz
