@@ -69,3 +69,4 @@ $ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
 * JSON Web Tokens (JWT) Demystified: https://hackernoon.com/json-web-tokens-jwt-demystified-f7e202249640
 * Validate JWT tokens using JWKS in Java：https://medium.com/trabe/validate-jwt-tokens-using-jwks-in-java-214f7014b5cf
 * Nimbus JOSE + JWT：https://connect2id.com/products/nimbus-jose-jwt
+* How to Read PEM File to Get Public and Private Keys: https://www.baeldung.com/java-read-pem-file-keys
