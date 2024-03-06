@@ -52,6 +52,8 @@ $ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
 
 ```
 
+**Tips**: For most case, RS256(RSA 2048 + SHA 256) is better for security and performance.
+
 
 ### Attention
 
