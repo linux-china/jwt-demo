@@ -71,3 +71,4 @@ $ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
 * Nimbus JOSE + JWT：https://connect2id.com/products/nimbus-jose-jwt
 * How to Read PEM File to Get Public and Private Keys: https://www.baeldung.com/java-read-pem-file-keys
 * JWK Generator: https://jwkset.com/generate
+* mkjwk: simple JSON Web Key generator - https://mkjwk.org/
