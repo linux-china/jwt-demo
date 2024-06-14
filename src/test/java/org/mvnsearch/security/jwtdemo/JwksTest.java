@@ -6,6 +6,7 @@ import com.auth0.jwk.UrlJwkProvider;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.net.URL;
@@ -22,5 +23,14 @@ public class JwksTest {
         Jwk jwk = jwkProvider.get("6e8b1b55-0c3c-424f-b4cc-14f9126c1c2c");
         Algorithm algorithm = Algorithm.RSA256((RSAPublicKey) jwk.getPublicKey(), null);
         algorithm.verify(jwt);
+        System.out.println(new ObjectMapper().writeValueAsString(jwk));
+    }
+
+    @Test
+    public void testValidateJwk() throws Exception {
+        String domain = "http://localhost:8080";
+        UrlJwkProvider jwkProvider = new UrlJwkProvider(domain);
+        Jwk jwk = jwkProvider.get("JWT-RS256-Midea-pub");
+        System.out.println(jwk.getPublicKey().getAlgorithm());
     }
 }
