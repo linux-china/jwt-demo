@@ -74,5 +74,6 @@ Please run EcdsaKeyServiceTest to generate ECDSA key pairs.
 * Validate JWT tokens using JWKS in Java：https://medium.com/trabe/validate-jwt-tokens-using-jwks-in-java-214f7014b5cf
 * Nimbus JOSE + JWT：https://connect2id.com/products/nimbus-jose-jwt
 * How to Read PEM File to Get Public and Private Keys: https://www.baeldung.com/java-read-pem-file-keys
+* Understanding JWKS: JSON Web Key Set Explained: https://stytch.com/blog/understanding-jwks
 * JWK Generator: https://jwkset.com/generate
 * mkjwk: simple JSON Web Key generator - https://mkjwk.org/
