@@ -22,7 +22,7 @@ JWT(JSON Web Tokens) is very useful for API gateway to authorize the user
 Authorization: Bearer xxx.yyy.zzz
 ```
 
-### RSA token generation
+### RSA key pair generation
 
 Almost we use RSA private key to generate JWT token and use RSA public key to verify token.
 
@@ -39,7 +39,6 @@ $ openssl rsa -in private_key.pem -pubout -outform DER -out public_key.der
 
 ```
 
-
 ```
 # generate a 2048-bit RSA private key
 $ openssl genrsa -out jwt_private_key.pem 2048
@@ -54,6 +53,11 @@ $ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
 
 **Tips**: For most case, RS256(RSA 2048 + SHA 256) is better for security and performance.
 
+### ECDSA key pair generation
+
+Please run EcdsaKeyServiceTest to generate ECDSA key pairs.
+
+`secp256r1 == NIST P-256`
 
 ### Attention
 
