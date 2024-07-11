@@ -59,6 +59,11 @@ Please run EcdsaKeyServiceTest to generate ECDSA key pairs.
 
 `secp256r1 == NIST P-256`
 
+command line: 
+
+* How to generate RSA and EC keys with OpenSSL: https://connect2id.com/products/nimbus-jose-jwt/openssl-key-generation
+* Command line JSON Web Key (JWK) generator: https://connect2id.com/products/nimbus-jose-jwt/generator
+
 ### Attention
 
 * anonymous for actuator and white urls list
