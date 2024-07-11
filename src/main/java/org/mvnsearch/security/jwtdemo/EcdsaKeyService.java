@@ -31,10 +31,4 @@ public class EcdsaKeyService {
         return (ECPublicKey) kf.generatePublic(keySpec);
     }
 
-    public static ECParameterSpec ecParameterSpecForCurve(String curveName) throws NoSuchAlgorithmException, InvalidParameterSpecException {
-        AlgorithmParameters params = AlgorithmParameters.getInstance("EC");
-        params.init(new ECGenParameterSpec(curveName));
-        return params.getParameterSpec(ECParameterSpec.class);
-    }
-
 }
