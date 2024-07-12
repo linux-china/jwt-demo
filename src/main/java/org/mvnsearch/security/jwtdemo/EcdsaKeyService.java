@@ -7,7 +7,7 @@ import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.*;
 import java.util.Base64;
-import java.util.stream.Stream;
+import java.util.stream.Collectors;
 
 /**
  * ECDSA key service
@@ -42,9 +42,9 @@ public class EcdsaKeyService {
     }
 
     public static String extractBase64(String pemText) {
-        return Stream.of(pemText.split("\n"))
-                .filter(line -> !line.startsWith("----") && !line.isEmpty())
-                .reduce((a, b) -> a + b).orElse("");
+        return pemText.lines()
+                .filter(line -> !line.startsWith("--") && !line.isEmpty())
+                .collect(Collectors.joining(""));
     }
 
 }
