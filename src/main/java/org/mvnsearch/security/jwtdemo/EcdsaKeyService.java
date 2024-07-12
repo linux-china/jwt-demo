@@ -3,10 +3,11 @@ package org.mvnsearch.security.jwtdemo;
 import java.math.BigInteger;
 import java.security.AlgorithmParameters;
 import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.*;
+import java.util.Base64;
+import java.util.stream.Stream;
 
 /**
  * ECDSA key service
@@ -22,13 +23,28 @@ public class EcdsaKeyService {
         BigInteger s = new BigInteger(1, privateKey);
         KeyFactory kf = KeyFactory.getInstance("EC");
         return (ECPrivateKey) kf.generatePrivate(new ECPrivateKeySpec(s, p));
+    }
 
+    public static ECPrivateKey readPrivateKey(String pemText) throws Exception {
+        byte[] privateKey = Base64.getDecoder().decode(extractBase64(pemText));
+        return readPrivateKey(privateKey);
     }
 
     public static ECPublicKey readPublicKey(byte[] publicKey) throws Exception {
         KeyFactory kf = KeyFactory.getInstance("EC");
         EncodedKeySpec keySpec = new X509EncodedKeySpec(publicKey);
         return (ECPublicKey) kf.generatePublic(keySpec);
+    }
+
+    public static ECPublicKey readPublicKey(String pemText) throws Exception {
+        byte[] publicKey = Base64.getDecoder().decode(extractBase64(pemText));
+        return readPublicKey(publicKey);
+    }
+
+    public static String extractBase64(String pemText) {
+        return Stream.of(pemText.split("\n"))
+                .filter(line -> !line.startsWith("----") && !line.isEmpty())
+                .reduce((a, b) -> a + b).orElse("");
     }
 
 }
