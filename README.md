@@ -76,6 +76,7 @@ Or you can use [simple JSON Web Key generator](https://mkjwk.org/) to generate E
 * Validate JWT tokens using JWKS in Java：https://medium.com/trabe/validate-jwt-tokens-using-jwks-in-java-214f7014b5cf
 * Nimbus JOSE + JWT：https://connect2id.com/products/nimbus-jose-jwt
 * JSON Web Token (JWT) with EdDSA / Ed25519 signature: https://connect2id.com/products/nimbus-jose-jwt/examples/jwt-with-eddsa
+* JEP 339: Edwards-Curve Digital Signature Algorithm (EdDSA): https://openjdk.org/jeps/339
 * How to Read PEM File to Get Public and Private Keys: https://www.baeldung.com/java-read-pem-file-keys
 * Understanding JWKS: JSON Web Key Set Explained: https://stytch.com/blog/understanding-jwks
 * JWK Generator: https://jwkset.com/generate
