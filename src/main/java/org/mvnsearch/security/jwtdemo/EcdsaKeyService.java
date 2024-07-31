@@ -1,11 +1,10 @@
 package org.mvnsearch.security.jwtdemo;
 
-import java.math.BigInteger;
-import java.security.AlgorithmParameters;
 import java.security.KeyFactory;
 import java.security.interfaces.ECPrivateKey;
 import java.security.interfaces.ECPublicKey;
-import java.security.spec.*;
+import java.security.spec.EncodedKeySpec;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.stream.Collectors;
 
@@ -17,13 +16,11 @@ import java.util.stream.Collectors;
 public class EcdsaKeyService {
 
     public static ECPrivateKey readPrivateKey(byte[] privateKey) throws Exception {
-        AlgorithmParameters a = AlgorithmParameters.getInstance("EC");
-        a.init(new ECGenParameterSpec("secp256r1"));
-        ECParameterSpec p = a.getParameterSpec(ECParameterSpec.class);
-        BigInteger s = new BigInteger(1, privateKey);
         KeyFactory kf = KeyFactory.getInstance("EC");
-        return (ECPrivateKey) kf.generatePrivate(new ECPrivateKeySpec(s, p));
+        EncodedKeySpec keySpec = new X509EncodedKeySpec(privateKey);
+        return (ECPrivateKey) kf.generatePrivate(keySpec);
     }
+
 
     public static ECPrivateKey readPrivateKey(String pemText) throws Exception {
         byte[] privateKey = Base64.getDecoder().decode(extractBase64(pemText));
