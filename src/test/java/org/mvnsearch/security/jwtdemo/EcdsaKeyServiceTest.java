@@ -9,6 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
 import java.security.spec.ECGenParameterSpec;
+import java.util.Base64;
 
 public class EcdsaKeyServiceTest {
 
@@ -44,16 +45,13 @@ public class EcdsaKeyServiceTest {
     }
 
     @Test
-    public void testExtractPem() {
-        String text = "-----BEGIN PUBLIC KEY-----\n" +
-                "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqJpjgxRYJ8m2QxspbJ7r\n" +
-                "k26Ck6ONuUK8Kuwv6/0GKhuVUCbOsVkgF8jaNMJpVZTbDp+1TPholLHD93vrfZTe\n" +
-                "7G/ndPsWSf9vXlHsJwRdE4Mv40aPQr2cmlUO1Ws+asUhNf7EV+1kZ2JFbUGlQPcO\n" +
-                "pb01nS6baslY7Yn9NNxg1RSVgYNypdVdtlVxgUpxmR9ME18XrB/WUIDvqxO67ocu\n" +
-                "afT/3fU0jPRs7i+v7RJMyUQALNe5XsqoqQZAekURjBtrlzHwzfUQo2aNb5g9vZle\n" +
-                "ZF8ogftcy/27qIzTuV83fp55CJh3B/mPMO/zfr/gDRctoUCchKvxxQ2GaN7pZwPn\n" +
-                "hQIDAQAB\n" +
-                "-----END PUBLIC KEY-----";
-        System.out.println(EcdsaKeyService.extractBase64(text));
+    public void testExtractPem() throws Exception {
+        String text = "-----BEGIN PRIVATE KEY-----\n" +
+                "MEECAQAwEwYHKoZIzj0CAQYIKoZIzj0DAQcEJzAlAgEBBCBMQppuNBg3V/u7UlrB\n" +
+                "UiynuWnr0sxO/elVi3agVRjcmQ==\n" +
+                "-----END PRIVATE KEY-----";
+        String pubKeyText = EcdsaKeyService.extractBase64(text);
+        byte[] bytes = Base64.getDecoder().decode(pubKeyText);
+        EcdsaKeyService.readPrivateKey(bytes);
     }
 }
