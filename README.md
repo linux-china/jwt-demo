@@ -81,3 +81,4 @@ Or you can use [simple JSON Web Key generator](https://mkjwk.org/) to generate E
 * Understanding JWKS: JSON Web Key Set Explained: https://stytch.com/blog/understanding-jwks
 * JWK Generator: https://jwkset.com/generate
 * mkjwk: simple JSON Web Key generator - https://mkjwk.org/
+* Spring Security without the WebSecurityConfigurerAdapter: https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
