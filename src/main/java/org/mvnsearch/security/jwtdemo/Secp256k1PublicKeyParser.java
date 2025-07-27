@@ -12,14 +12,14 @@ import org.bouncycastle.math.ec.ECPoint;
 
 import java.math.BigInteger;
 import java.security.KeyFactory;
-import java.security.PrivateKey;
-import java.security.PublicKey;
 import java.security.Security;
+import java.security.interfaces.ECPrivateKey;
+import java.security.interfaces.ECPublicKey;
 import java.util.HexFormat;
 
 public class Secp256k1PublicKeyParser {
 
-  public static PublicKey parseSecp256k1CompressedPublicKey(byte[] compressedPublicKeyBytes) throws Exception {
+  public static ECPublicKey parseSecp256k1CompressedPublicKey(byte[] compressedPublicKeyBytes) throws Exception {
     Security.addProvider(new BouncyCastleProvider());
 
     // 1. Retrieve the Curve Parameters
@@ -39,10 +39,10 @@ public class Secp256k1PublicKeyParser {
 
     ECPublicKeySpec pubSpec = new ECPublicKeySpec(ecPoint, ecParameterSpec);
     KeyFactory keyFactory = KeyFactory.getInstance("EC", "BC");
-    return keyFactory.generatePublic(pubSpec);
+    return (ECPublicKey) keyFactory.generatePublic(pubSpec);
   }
 
-  public static PrivateKey parseSecp256k1PrivateKey(byte[] privateKeyBytes) throws Exception {
+  public static ECPrivateKey parseSecp256k1PrivateKey(byte[] privateKeyBytes) throws Exception {
     // Add Bouncy Castle as a security provider
     Security.addProvider(new org.bouncycastle.jce.provider.BouncyCastleProvider());
 
@@ -59,7 +59,7 @@ public class Secp256k1PublicKeyParser {
     KeyFactory keyFactory = KeyFactory.getInstance("EC", "BC");
 
     // Generate the PrivateKey object
-    return keyFactory.generatePrivate(privateKeySpec);
+    return (ECPrivateKey) keyFactory.generatePrivate(privateKeySpec);
   }
 
 
