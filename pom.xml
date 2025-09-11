@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.5.4</version>
+    <version>3.5.5</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
@@ -53,12 +53,12 @@
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>jwks-rsa</artifactId>
-            <version>0.22.2</version>
+            <version>0.23.0</version>
         </dependency>
         <dependency>
             <groupId>com.nimbusds</groupId>
             <artifactId>nimbus-jose-jwt</artifactId>
-            <version>10.4</version>
+            <version>10.5</version>
         </dependency>
         <dependency>
             <groupId>commons-io</groupId>
