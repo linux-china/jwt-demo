@@ -53,6 +53,15 @@ $ openssl rsa -in jwt_private_key.pem -pubout -outform DER -out jwt_rsa.pub
 
 **Tips**: For most case, RS256(RSA 2048 + SHA 256) is better for security and performance.
 
+### Ed25519 key pair
+
+```json
+{
+  "alg": "EdDSA",
+  "typ": "JWT"
+}
+```
+
 ### ECDSA key pair generation
 
 Please run EcdsaKeyServiceTest to generate ECDSA key pairs.
@@ -83,3 +92,4 @@ Or you can use [simple JSON Web Key generator](https://mkjwk.org/) to generate E
 * mkjwk: simple JSON Web Key generator - https://mkjwk.org/
 * JWT (JSON Web Token) Analyzer: https://plugins.jetbrains.com/plugin/9831-jwt-json-web-token-analyzer
 * Spring Security without the WebSecurityConfigurerAdapter: https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
+* JWT vs PASETO v2 vs TECTO: Choosing the Right Token Protocol in 2026: https://dev.to/zastinian/jwt-vs-paseto-v2-vs-tecto-choosing-the-right-token-protocol-in-2026-573j
