@@ -93,3 +93,5 @@ Or you can use [simple JSON Web Key generator](https://mkjwk.org/) to generate E
 * JWT (JSON Web Token) Analyzer: https://plugins.jetbrains.com/plugin/9831-jwt-json-web-token-analyzer
 * Spring Security without the WebSecurityConfigurerAdapter: https://spring.io/blog/2022/02/21/spring-security-without-the-websecurityconfigureradapter
 * JWT vs PASETO v2 vs TECTO: Choosing the Right Token Protocol in 2026: https://dev.to/zastinian/jwt-vs-paseto-v2-vs-tecto-choosing-the-right-token-protocol-in-2026-573j
+* JWT authentication: Best practices and when to use it - https://blog.logrocket.com/jwt-authentication-best-practices/
+
