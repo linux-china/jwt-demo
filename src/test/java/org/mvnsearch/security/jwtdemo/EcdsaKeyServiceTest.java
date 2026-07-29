@@ -1,9 +1,9 @@
 package org.mvnsearch.security.jwtdemo;
 
+import jakarta.xml.bind.DatatypeConverter;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Test;
 
-import javax.xml.bind.DatatypeConverter;
 import java.io.FileOutputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.KeyPair;
